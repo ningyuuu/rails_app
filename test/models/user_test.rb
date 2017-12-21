@@ -88,4 +88,8 @@ class UserTest < ActiveSupport::TestCase
     @user.password_confirmation = "password1"
     assert_not @user.valid?
   end
+
+  test "blank remember_digest should not throw an error" do
+    assert_not @user.authenticated?('')
+  end
 end
