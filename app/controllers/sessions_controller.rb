@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # render the user's page
       params[:session][:remember] == '1' ? remember(user) : forget(user)
       log_in user
-      redirect_to user
+      redirect_back_or user
     else
       # render some errors
       flash.now[:danger] = 'Invalid username/password combination entered.'
