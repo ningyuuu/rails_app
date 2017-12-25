@@ -90,6 +90,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "blank remember_digest should not throw an error" do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
 end
