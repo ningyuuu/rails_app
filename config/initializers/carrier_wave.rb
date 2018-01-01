@@ -1,5 +1,10 @@
 if Rails.env.production?
   CarrierWave.configure do |config|
+    config.storage = :fog,
+    config.fog_use_ssl_for_aws = true,
+    config.fog_public     = true
+    config.fog_attributes = { 'Cache-Control': 'max-age=315576000' }
+    config.asset_host = 'https://s3.amazonaws.com/website'
     config.fog_credentials = {
       # Configuration for Amazon S3
       :provider              => 'AWS',
